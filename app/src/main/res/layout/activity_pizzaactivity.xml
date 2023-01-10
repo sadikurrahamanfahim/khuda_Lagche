@@ -27,10 +27,13 @@
             android:orientation="vertical"
             android:layout_margin="10dp"
             >
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/profile"/>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/dp"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/profile"
+                app:civ_border_width="2dp"/>
 
 
         </LinearLayout>
@@ -99,7 +102,6 @@
                         android:id="@+id/firstimg"
                         android:layout_height="150dp"
                         android:layout_width="150dp"
-                        android:background="@drawable/chickenpizza"
                         android:layout_gravity="center"
                         android:layout_marginTop="8dp"
                         />
@@ -127,7 +129,7 @@
                         android:layout_height="150dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="8dp"
-                        android:background="@drawable/italianpizza" />
+                       />
 
                     <TextView
                         android:id="@+id/seconditem"
@@ -156,7 +158,6 @@
                         android:id="@+id/thirdimg"
                         android:layout_height="150dp"
                         android:layout_width="150dp"
-                        android:background="@drawable/bbqbeefpizza"
                         android:layout_gravity="center"
                         android:layout_marginTop="8dp"
                         />
@@ -182,8 +183,7 @@
                         android:layout_width="150dp"
                         android:layout_height="150dp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/mixedpizza" />
+                        android:layout_marginTop="8dp" />
 
                     <TextView
                         android:id="@+id/fourthitem"
@@ -214,8 +214,7 @@
                         android:layout_width="150dp"
                         android:layout_height="150dp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/pepperoni" />
+                        android:layout_marginTop="8dp" />
 
                     <TextView
                         android:id="@+id/fifthitem"
@@ -237,7 +236,6 @@
                         android:id="@+id/sixthimg"
                         android:layout_height="150dp"
                         android:layout_width="150dp"
-                        android:background="@drawable/chessypizza"
                         android:layout_gravity="center"
                         android:layout_marginTop="8dp"
                         />

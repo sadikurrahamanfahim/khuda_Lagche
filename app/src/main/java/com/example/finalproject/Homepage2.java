@@ -8,13 +8,15 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -24,18 +26,26 @@ import java.io.IOException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class Profile extends AppCompatActivity {
+public class Homepage2 extends AppCompatActivity {
     BottomNavigationView navigator;
-    FirebaseAuth auth;
+    LinearLayout piz,drinks,burger;
     CircleImageView dp;
     StorageReference storageReference;
+    ImageView secondimg,thirdimg;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_home2);
         getSupportActionBar().hide();
-        auth=FirebaseAuth.getInstance();
+
+        navigator=findViewById(R.id.bottomNavigationView);
+        piz=findViewById(R.id.pizza);
+        drinks=findViewById(R.id.drinks);
+        burger=findViewById(R.id.burger);
+        secondimg=findViewById(R.id.secondimg);
+        thirdimg=findViewById(R.id.thirdimg);
         dp=findViewById(R.id.dp);
 
         storageReference= FirebaseStorage.getInstance().getReference().child("uplod/tumpadp.jpg");
@@ -52,22 +62,20 @@ public class Profile extends AppCompatActivity {
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(Profile.this,"Error in Fetching",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Homepage2.this,"Error in Fetching",Toast.LENGTH_SHORT).show();
                         }
                     });
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        navigator=findViewById(R.id.bottomNavigationView);
-
         navigator.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId())
                 {
-                    case R.id.home:
-                        Intent intent=new Intent(getApplicationContext(), Homepage2.class);
+                    case R.id.profile:
+                        Intent intent=new Intent(getApplicationContext(),Profile.class);
                         startActivity(intent);
                         finish();
                         break;
@@ -84,6 +92,57 @@ public class Profile extends AppCompatActivity {
                         break;
                 }
                 return true;
+            }
+        });
+
+
+
+        piz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                HomePage1.value="pizza";
+                Intent intent=new Intent(Homepage2.this,Pizzaactivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        drinks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                HomePage1.value="drinks";
+                Intent intent=new Intent(Homepage2.this,Pizzaactivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        burger.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                HomePage1.value="burger";
+                Intent intent=new Intent(Homepage2.this,Pizzaactivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        secondimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Pizzaactivity.item="italianpizza";
+                Intent intent=new Intent(Homepage2.this,Itempage.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        thirdimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Pizzaactivity.item="chickenburger";
+                Intent intent=new Intent(Homepage2.this,Itempage.class);
+                startActivity(intent);
+                finish();
             }
         });
 

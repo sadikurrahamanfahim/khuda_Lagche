@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomePage"
+    tools:context=".HomePage1"
     android:orientation="vertical"
     >
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -23,6 +23,7 @@
         android:orientation="horizontal"
         >
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/dp"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="60dp"
             android:layout_height="60dp"
@@ -41,11 +42,12 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_below="@id/sch"
+        android:layout_alignParentLeft="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints"
-        android:orientation="vertical"
-        android:layout_below="@+id/sch">
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
@@ -346,14 +348,15 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/piz"
                         android:layout_height="190dp"
                         android:layout_width="190dp"
                         android:gravity="center"
                         android:layout_gravity="center"
                         android:orientation="vertical"
-                        tools:ignore="UseCompoundDrawables">
+                        tools:ignore="UseCompoundDrawables"
+                        android:id="@+id/piz">
                         <ImageView
+                            android:id="@+id/secondimg"
                             android:layout_height="150dp"
                             android:layout_width="150dp"
                             android:background="@drawable/italianpizza"
@@ -376,25 +379,27 @@
                     android:gravity="center">
 
                     <LinearLayout
-                        android:layout_height="190dp"
-                        android:layout_width="190dp"
+                        android:layout_width="195dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:layout_gravity="center"
                         tools:ignore="UseCompoundDrawables">
+
                         <ImageView
-                            android:layout_height="150dp"
+                            android:id="@+id/thirdimg"
                             android:layout_width="150dp"
-                            android:background="@drawable/spicyburger"
+                            android:layout_height="150dp"
                             android:layout_gravity="center"
                             android:layout_marginTop="8dp"
-                            />
+                            android:background="@drawable/spicyburger" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/spicyburger"
                             android:gravity="center"
-                            android:textColor="@color/sweet"/>
+                            android:text="@string/spicyburger"
+                            android:textColor="@color/sweet" />
                     </LinearLayout>
 
                     <LinearLayout

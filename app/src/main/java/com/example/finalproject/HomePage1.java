@@ -3,7 +3,6 @@ package com.example.finalproject;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -11,16 +10,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class HomePage extends AppCompatActivity {
+public class HomePage1 extends AppCompatActivity {
     BottomNavigationView navigator;
     TextView login,signup;
     LinearLayout piz,drinks,burger;
-    LinearLayout pizza;
+    ImageView secondimg,thirdimg;
+
     static String value;
 
     @Override
@@ -32,10 +30,12 @@ public class HomePage extends AppCompatActivity {
         login=findViewById(R.id.login);
         signup=findViewById(R.id.signup);
         navigator=findViewById(R.id.bottomNavigationView);
-        pizza=findViewById(R.id.pizza);
-        piz=findViewById(R.id.piz);
+        piz=findViewById(R.id.pizza);
         drinks=findViewById(R.id.drinks);
         burger=findViewById(R.id.burger);
+        secondimg=findViewById(R.id.secondimg);
+        thirdimg=findViewById(R.id.thirdimg);
+
 
         navigator.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -67,7 +67,7 @@ public class HomePage extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(HomePage.this,LoginPage.class);
+                Intent intent=new Intent(HomePage1.this,LoginPage.class);
                 startActivity(intent);
                 finish();
             }
@@ -76,26 +76,17 @@ public class HomePage extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(HomePage.this,RegistrationPage.class);
+                Intent intent=new Intent(HomePage1.this,RegistrationPage.class);
                 startActivity(intent);
                 finish();
             }
         });
 
-
-        pizza.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                value="pizza";
-                Intent intent=new Intent(HomePage.this,Pizzaactivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
         piz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(HomePage.this,Itempage.class);
+                value="pizza";
+                Intent intent=new Intent(HomePage1.this,Pizzaactivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -105,7 +96,7 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 value="drinks";
-                Intent intent=new Intent(HomePage.this,Pizzaactivity.class);
+                Intent intent=new Intent(HomePage1.this,Pizzaactivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -115,12 +106,29 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 value="burger";
-                Intent intent=new Intent(HomePage.this,Pizzaactivity.class);
+                Intent intent=new Intent(HomePage1.this,Pizzaactivity.class);
                 startActivity(intent);
                 finish();
             }
         });
 
-
+        secondimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Pizzaactivity.item="italianpizza";
+                Intent intent=new Intent(HomePage1.this,Itempage.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        thirdimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Pizzaactivity.item="chickenburger";
+                Intent intent=new Intent(HomePage1.this,Itempage.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 }

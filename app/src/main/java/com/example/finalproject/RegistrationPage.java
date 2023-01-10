@@ -19,7 +19,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.auth.api.signin.internal.Storage;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -144,7 +143,7 @@ public class RegistrationPage extends AppCompatActivity {
                                                                 if (task.isSuccessful())
                                                                 {
                                                                     progressDialog.dismiss();
-                                                                    startActivity(new Intent(RegistrationPage.this,home_activity2.class));
+                                                                    startActivity(new Intent(RegistrationPage.this, Homepage2.class));
                                                                 }else
                                                                 {
                                                                     progressDialog.dismiss();
@@ -164,7 +163,7 @@ public class RegistrationPage extends AppCompatActivity {
                                                         if (task.isSuccessful())
                                                         {
                                                             progressDialog.dismiss();
-                                                            startActivity(new Intent(RegistrationPage.this,home_activity2.class));
+                                                            startActivity(new Intent(RegistrationPage.this, Homepage2.class));
                                                         }else
                                                         {
                                                             progressDialog.dismiss();

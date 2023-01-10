@@ -71,14 +71,14 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".home_activity2"
+            android:name=".Homepage2"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".HomePage"
+            android:name=".HomePage1"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

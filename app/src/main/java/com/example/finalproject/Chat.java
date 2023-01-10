@@ -36,7 +36,7 @@ public class Chat extends AppCompatActivity {
                         finish();
                         break;
                     case R.id.home:
-                        Intent intent2=new Intent(getApplicationContext(),HomePage.class);
+                        Intent intent2=new Intent(getApplicationContext(), Homepage2.class);
                         startActivity(intent2);
                         finish();
                         break;

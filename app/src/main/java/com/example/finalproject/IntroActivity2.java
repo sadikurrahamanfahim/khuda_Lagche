@@ -22,7 +22,7 @@ public class IntroActivity2 extends AppCompatActivity {
         arrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(IntroActivity2.this,HomePage.class);
+                Intent intent = new Intent(IntroActivity2.this, HomePage1.class);
                 startActivity(intent);
                 finish();
             }
@@ -31,7 +31,7 @@ public class IntroActivity2 extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(IntroActivity2.this,HomePage.class);
+                Intent intent = new Intent(IntroActivity2.this, HomePage1.class);
                 startActivity(intent);
                 finish();
             }
@@ -40,7 +40,7 @@ public class IntroActivity2 extends AppCompatActivity {
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(IntroActivity2.this,HomePage.class);
+                Intent intent = new Intent(IntroActivity2.this, HomePage1.class);
                 startActivity(intent);
                 finish();
             }

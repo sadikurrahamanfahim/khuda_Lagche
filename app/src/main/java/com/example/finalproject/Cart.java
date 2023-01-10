@@ -2,27 +2,34 @@ package com.example.finalproject;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
-import java.util.ArrayList;
+import java.io.File;
+import java.io.IOException;
 
 public class Cart extends AppCompatActivity {
     BottomNavigationView navigator;
-    TextView plus,minus,txt,plus1,minus1,txt1,order;
+    TextView plus,minus,txt,plus1,minus1,txt1,order,firstitem,firstprice;
     int i=1,j=1;
+    StorageReference storageReference;
+    ImageView itempic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +46,39 @@ public class Cart extends AppCompatActivity {
         minus1=findViewById(R.id.minus1);
         txt1=findViewById(R.id.txt1);
         order=findViewById(R.id.order);
+        firstitem=findViewById(R.id.firstitm);
+        firstprice=findViewById(R.id.firstprice);
+        itempic=findViewById(R.id.firstimg);
 
-        plus.setOnClickListener(new View.OnClickListener() {
+        if (Itempage.itemname.equals("Italian Pizza"))
+        {
+            firstitem.setText(Itempage.name);
+            firstprice.setText(Itempage.pize);
+        }else if (Itempage.itemname.equals("Chicken Burger"))
+        {
+            firstitem.setText(Itempage.name);
+            firstprice.setText(Itempage.pize);
+            storageReference= FirebaseStorage.getInstance().getReference().child("images/chkbgr.jpg");
+            try {
+                final File localFile=File.createTempFile("chickenpizza","jpg");
+                storageReference.getFile(localFile)
+                        .addOnCompleteListener(new OnCompleteListener<FileDownloadTask.TaskSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<FileDownloadTask.TaskSnapshot> task) {
+                                Bitmap bitmap= BitmapFactory.decodeFile(localFile.getAbsolutePath());
+                                itempic.setImageBitmap(bitmap);
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(Cart.this,"Error in Fetching",Toast.LENGTH_SHORT).show();
+                            }
+                        });
+        } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 i++;
@@ -84,7 +122,7 @@ public class Cart extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(Cart.this,"Order Complete",Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent(Cart.this,HomePage.class);
+                Intent intent=new Intent(Cart.this, HomePage1.class);
             }
         });
 
@@ -101,7 +139,7 @@ public class Cart extends AppCompatActivity {
                         break;
 
                     case R.id.home:
-                        Intent intent1=new Intent(getApplicationContext(),HomePage.class);
+                        Intent intent1=new Intent(getApplicationContext(), Homepage2.class);
                         startActivity(intent1);
                         finish();
                         break;
@@ -115,4 +153,5 @@ public class Cart extends AppCompatActivity {
             }
         });
     }
+}
 }

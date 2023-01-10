@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomePage"
+    tools:context=".HomePage1"
     android:orientation="vertical"
     >
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -58,12 +58,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:hint="Enter Keywords"
-            android:drawableLeft="@drawable/searchbar"
-            android:textColor="@color/sweet"
-            android:drawableTint="@color/black"
             android:layout_margin="10dp"
-            />
+            android:drawableLeft="@drawable/searchbar"
+            android:drawableTint="@color/black"
+            android:hint="Enter Keywords"
+            android:textColor="@color/sweet" />
     </LinearLayout>
 
     <LinearLayout
@@ -381,6 +380,7 @@
                         tools:ignore="UseCompoundDrawables"
                         android:id="@+id/piz">
                         <ImageView
+                            android:id="@+id/secondimg"
                             android:layout_height="150dp"
                             android:layout_width="150dp"
                             android:background="@drawable/italianpizza"
@@ -411,6 +411,7 @@
                         tools:ignore="UseCompoundDrawables">
 
                         <ImageView
+                            android:id="@+id/thirdimg"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:layout_gravity="center"
@@ -421,7 +422,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="@string/spicyburger"
+                            android:text="Chicken Burger"
                             android:textColor="@color/sweet" />
                     </LinearLayout>
 

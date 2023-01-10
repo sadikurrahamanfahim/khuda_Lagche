@@ -23,7 +23,7 @@ public class Admin extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Admin.this,HomePage.class);
+                Intent intent=new Intent(Admin.this, HomePage1.class);
                 startActivity(intent);
                 finish();
             }

@@ -12,7 +12,6 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -81,10 +80,13 @@ public class LoginPage extends AppCompatActivity {
                     finish();
                 }else if (TextUtils.isEmpty(email)||TextUtils.isEmpty(pass)){
                     progressDialog.dismiss();
+                    un.setError("Error");
+                    pd.setError("Error");
                     Toast.makeText(LoginPage.this,"Enter Data",Toast.LENGTH_SHORT).show();
                 }
                 else if (!email.matches(emailPattern)){
                     progressDialog.dismiss();
+                    un.setError("Error");
                     Toast.makeText(LoginPage.this,"Enter Valid Email",Toast.LENGTH_SHORT).show();
                 }
                 else {
@@ -93,7 +95,7 @@ public class LoginPage extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
                                 progressDialog.dismiss();
-                                startActivity(new Intent(LoginPage.this,home_activity2.class));
+                                startActivity(new Intent(LoginPage.this, Homepage2.class));
                             }else{
                                 progressDialog.dismiss();
                                 Toast.makeText(LoginPage.this,"Login Error",Toast.LENGTH_LONG).show();

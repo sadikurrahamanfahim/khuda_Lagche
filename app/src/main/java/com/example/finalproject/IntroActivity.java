@@ -41,7 +41,7 @@ public class IntroActivity extends AppCompatActivity {
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(IntroActivity.this,HomePage.class);
+                Intent intent = new Intent(IntroActivity.this, HomePage1.class);
                 startActivity(intent);
                 finish();
             }
