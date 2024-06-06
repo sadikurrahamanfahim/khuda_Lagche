@@ -1,4 +1,6 @@
 # Khuda Lagche!(An online Food Delivery Android Application)
-This is Food delivery App focesed on UI design.
+A Food delivery Android Application mainly focused on UI peinciples.
 
-User can visit all the item and see it's price without even login. It is UI focyused food application which will make you hungry and will make you buy.
+Want to use the app!
+Download the apk file and install on your device and you will be good to go.
+User can visit all the item and see it's price without even login. It is UI focused android application which was built in learning purpose.
