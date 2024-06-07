@@ -150,19 +150,20 @@
         android:textSize="20sp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:background="@drawable/button"/>
+        android:background="@drawable/circle"/>
+
     <TextView
         android:id="@+id/home"
-        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_height="32dp"
         android:layout_gravity="center"
-        android:text="Go to Home"
-        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/circle"
+        android:gravity="center"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:background="@drawable/button"/>
+        android:text="Go to Home"
+        android:textSize="20sp" />
 
 
 </LinearLayout>
