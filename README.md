@@ -1,4 +1,4 @@
-# Khuda Lagche!(An online Food Delivery Android Application)
+# Khuda Lagche!(An online Food Delivery Android Application Demo)
 A Food delivery Android Application mainly focused on UI principles.
 
 Want to use the app!
