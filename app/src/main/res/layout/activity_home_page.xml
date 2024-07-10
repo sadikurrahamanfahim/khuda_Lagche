@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:drawableLeft="@drawable/searchbar"
+            android:drawableStart="@drawable/searchbar"
             android:drawableTint="@color/black"
             android:hint="Enter Keywords"
             android:textColor="@color/sweet" />
